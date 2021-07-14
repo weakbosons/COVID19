@@ -9,7 +9,7 @@ rm(ddf0)
 ddf0<-data.frame(居住地,人口)
 
 ##
-df<-read.csv("~/git/COVID19/Kanagawa/Kawasaki/patient2.csv")
+df<-read.csv("~/COVID19/Kanagawa/Kawasaki/patient2.csv")
 class(df$発表日)
 class(df$居住地)
 class(df$年代)
