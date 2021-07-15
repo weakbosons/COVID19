@@ -2,14 +2,14 @@
 library(tidyverse)
 library(lubridate)
 ##前処理
-system("~/git/COVID19/Kanagawa/prep.sh")
+system("~/COVID19/Kanagawa/prep.sh")
 ##
 rm(ddf0)
 居住地<-c("横浜","川崎","厚木","相模原","藤沢","鎌倉","平塚","横須賀","小田原","茅ヶ崎")
 人口<-c(3.75,1.53,0.85,0.72,0.43,0.30,0.63,0.39,0.34,0.24)
 ddf0<-data.frame(居住地,人口)
 ##
-df<-read.csv("~/git/COVID19/Kanagawa/patient2.csv")
+df<-read.csv("~/COVID19/Kanagawa/patient2.csv")
 df$発表日<-as.POSIXct(df$発表日)
 df$居住地<-as.character(df$居住地)
 df$年代<-as.character(df$年代)
