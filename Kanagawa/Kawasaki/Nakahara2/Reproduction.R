@@ -19,7 +19,7 @@ ddf02 <- ddf02 %>% mutate(合計 = 男性 + 女性 )
 
 
 
-dd<-read.csv("~/git/COVID19/Kanagawa/Kawasaki/patient2.csv")
+dd<-read.csv("~/COVID19/Kanagawa/Kawasaki/patient2.csv")
 df <- as.data.frame(dd)
 df <- df %>% filter(居住地=="中原")
 df$発表日<-as.POSIXct(df$発表日)
