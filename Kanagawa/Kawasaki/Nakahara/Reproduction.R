@@ -2,7 +2,7 @@
 library(tidyverse)
 library(lubridate)
 ##前処理
-##system("/Users/momma/git/COVID19/Kawasaki/prep.sh")
+##system("/Users/momma/COVID19/Kawasaki/prep.sh")
 rm(ddf0)
 居住地<-c("中原")
 人口<-c(0.262)
@@ -19,7 +19,7 @@ xx <- ddf01 %>% gather(key=性別, value=人数,男性,女性)
 
 
 ##
-df<-read.csv("~/git/COVID19/Kanagawa/Kawasaki/patient2.csv")
+df<-read.csv("~/COVID19/Kanagawa/Kawasaki/patient2.csv")
 class(df$発表日)
 class(df$居住地)
 class(df$年代)
