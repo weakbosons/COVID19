@@ -2,7 +2,7 @@
 library(tidyverse)
 library(lubridate)
 ##前処理
-##system("/Users/momma/git/COVID19/Kawasaki/prep.sh")
+##system("~/COVID19/Kawasaki/prep.sh")
 rm(ddf0)
 居住地<-c("川崎","幸","中原","高津","宮前","多摩","麻生")
 人口<-c(0.233,0.171,0.262,0.233,0.232,0.220,0.180)
