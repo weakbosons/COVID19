@@ -19,7 +19,7 @@ ddf02 <- ddf02 %>% mutate(合計 = 男性 + 女性 )
 
 
 
-dd<-read.csv("~/COVID19/Kanagawa/Kawasaki/patient2.csv")
+dd<-read.csv("~/COVID19/Kanagawa/Kawasaki/patient2022.csv")
 df <- as.data.frame(dd)
 df <- df %>% filter(居住地=="中原")
 df$発表日<-as.POSIXct(df$発表日)
@@ -58,14 +58,14 @@ p1 <- p1 + annotate(geom="text",x=tail(df5$発表日,n=1),y=tail(df5[,10],n=1),l
 ##全年代層
 df6<-df5
 df6[,2]= df5[,2]/ddf02$合計[ddf02$年代=="10"]*100
-df6[,3]= df5[,2]/ddf02$合計[ddf02$年代=="20"]*100
-df6[,4]= df5[,2]/ddf02$合計[ddf02$年代=="30"]*100
-df6[,5]= df5[,2]/ddf02$合計[ddf02$年代=="40"]*100
-df6[,6]= df5[,2]/ddf02$合計[ddf02$年代=="50"]*100
-df6[,7]= df5[,2]/ddf02$合計[ddf02$年代=="60"]*100
-df6[,8]= df5[,2]/ddf02$合計[ddf02$年代=="70"]*100
-df6[,9]= df5[,2]/ddf02$合計[ddf02$年代=="80"]*100
-df6[,10]= df5[,2]/ddf02$合計[ddf02$年代=="90"]*100
+df6[,3]= df5[,3]/ddf02$合計[ddf02$年代=="20"]*100
+df6[,4]= df5[,4]/ddf02$合計[ddf02$年代=="30"]*100
+df6[,5]= df5[,5]/ddf02$合計[ddf02$年代=="40"]*100
+df6[,6]= df5[,6]/ddf02$合計[ddf02$年代=="50"]*100
+df6[,7]= df5[,7]/ddf02$合計[ddf02$年代=="60"]*100
+df6[,8]= df5[,8]/ddf02$合計[ddf02$年代=="70"]*100
+df6[,9]= df5[,9]/ddf02$合計[ddf02$年代=="80"]*100
+df6[,10]= df5[,10]/ddf02$合計[ddf02$年代=="90"]*100
 p2 <- df6 %>% gather(ftype,val,-発表日) %>% ggplot(aes(x=発表日,y=val))
 p2 <- p2 + geom_line(aes(color = ftype))+scale_x_datetime(date_labels = "%m/%d", date_breaks = "1 month")
 p2 <- p2 + labs(color = "世代",size=2, title ="新型コロナ感染状況評価指標",subtitle="~世代別規感染者率~", x="発生日",y="感染率(%)")+theme_grey(base_family = "HiraKakuProN-W3")
@@ -82,10 +82,10 @@ p2 <- p2 + annotate(geom="text",x=tail(df6$発表日,n=1),y=tail(df6[,10],n=1),l
 
 #生産人口(20-50)
 df6<-df5
-df6[,3]= df5[,2]/ddf02$合計[ddf02$年代=="20"]*100
-df6[,4]= df5[,2]/ddf02$合計[ddf02$年代=="30"]*100
-df6[,5]= df5[,2]/ddf02$合計[ddf02$年代=="40"]*100
-df6[,6]= df5[,2]/ddf02$合計[ddf02$年代=="50"]*100
+df6[,3]= df5[,3]/ddf02$合計[ddf02$年代=="20"]*100
+df6[,4]= df5[,4]/ddf02$合計[ddf02$年代=="30"]*100
+df6[,5]= df5[,5]/ddf02$合計[ddf02$年代=="40"]*100
+df6[,6]= df5[,6]/ddf02$合計[ddf02$年代=="50"]*100
 df6<-df6[,-2]
 df6<-df6[,-6:-9]
 p3 <- df6 %>% gather(ftype,val,-発表日) %>% ggplot(aes(x=発表日,y=val))
@@ -100,7 +100,7 @@ p3 <- p3 + annotate(geom="text",x=tail(df6$発表日,n=1),y=tail(df6[,5],n=1),la
 #若年層(10-20)
 df6<-df5
 df6[,2]= df5[,2]/ddf02$合計[ddf02$年代=="10"]*100
-df6[,3]= df5[,2]/ddf02$合計[ddf02$年代=="20"]*100
+df6[,3]= df5[,3]/ddf02$合計[ddf02$年代=="20"]*100
 df6<-df6[,-4:-10]
 p4 <- df6 %>% gather(ftype,val,-発表日) %>% ggplot(aes(x=発表日,y=val))
 p4 <- p4 + geom_line(aes(color = ftype))+scale_x_datetime(date_labels = "%m/%d", date_breaks = "1 month")
@@ -111,10 +111,10 @@ p4 <- p4 + annotate(geom="text",x=tail(df6$発表日,n=1),y=tail(df6[,3],n=1),la
 
 #老年層(60-90)
 df6<-df5
-df6[,7]= df5[,2]/ddf02$合計[ddf02$年代=="60"]*100
-df6[,8]= df5[,2]/ddf02$合計[ddf02$年代=="70"]*100
-df6[,9]= df5[,2]/ddf02$合計[ddf02$年代=="80"]*100
-df6[,10]= df5[,2]/ddf02$合計[ddf02$年代=="90"]*100
+df6[,7]= df5[,7]/ddf02$合計[ddf02$年代=="60"]*100
+df6[,8]= df5[,8]/ddf02$合計[ddf02$年代=="70"]*100
+df6[,9]= df5[,9]/ddf02$合計[ddf02$年代=="80"]*100
+df6[,10]= df5[,10]/ddf02$合計[ddf02$年代=="90"]*100
 df6<-df6[,-2:-6]
 p5 <- df6 %>% gather(ftype,val,-発表日) %>% ggplot(aes(x=発表日,y=val))
 p5 <- p5 + geom_line(aes(color = ftype))+scale_x_datetime(date_labels = "%m/%d", date_breaks = "1 month")
