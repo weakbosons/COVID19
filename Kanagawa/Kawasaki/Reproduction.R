@@ -1,6 +1,7 @@
 ##必要ライブラリの読み込み
 library(tidyverse)
 library(lubridate)
+library(ggplot2)
 ##前処理
 ##system("~/COVID19/Kawasaki/prep.sh")
 rm(ddf0)
