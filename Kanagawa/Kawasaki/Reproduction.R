@@ -131,6 +131,7 @@ p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$川崎,n=1)
 p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$多摩,n=1),label="多摩",size=3,hjust=0,family="HiraKakuProN-W3")
 p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$中原,n=1),label="中原",size=3,hjust=0,family="HiraKakuProN-W3")
 p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$麻生,n=1),label="麻生",size=3,hjust=0,family="HiraKakuProN-W3")
+p3<-ggsave("p3.png",dpi=400)
 
 ##感染者数の人口10万人当たり累積数の対数値を評価
 ddf41<- ddf11
