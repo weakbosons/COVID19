@@ -123,7 +123,8 @@ t(aa)
 ##可視化
 rm(p3)
 p3 <- ddf14 %>% gather(ftype3,val,-発表日)　%>% ggplot(aes(x=発表日, y=val))
-p3<-p3 + geom_line(aes(color = ftype3)) + labs(color = "居住地",size=2, title ="新型コロナ感染状況評価指標",subtitle="~人口10万人あたりの一週間の新規感染者数(人)~", x="発生日",y="新規感染者数(人)")+theme_grey(base_family = "HiraKakuProN-W3") +scale_x_datetime(date_labels = "%m/%d", date_breaks = "1 month")
+#p3<-p3 + geom_line(aes(color = ftype3)) + labs(color = "居住地",size=2, title ="新型コロナ感染状況評価指標",subtitle="~人口10万人あたりの一週間の新規感染者数(人)~", x="発生日",y="新規感染者数(人)")+theme_grey(base_family = "HiraKakuProN-W3") +scale_x_datetime(date_labels = "%m/%d", date_breaks = "1 month")
+p3<-p3 + geom_line(aes(color = ftype3)) + labs(color = "居住地",size=2, title ="新型コロナ感染状況評価指標",subtitle="~人口10万人あたりの一週間の新規感染者数(人)~", x="発生日",y="新規感染者数(人)")+theme_grey(base_family = "HiraKakuProN-W3") +scale_x_datetime(date_labels = "%m", date_breaks = "1 month")
 p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$宮前,n=1),label="宮前",size=3,hjust=0,family="HiraKakuProN-W3")
 p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$幸,n=1),label="幸",size=3,hjust=0,family="HiraKakuProN-W3")
 p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$高津,n=1),label="高津",size=3,hjust=0,family="HiraKakuProN-W3")
@@ -131,7 +132,7 @@ p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$川崎,n=1)
 p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$多摩,n=1),label="多摩",size=3,hjust=0,family="HiraKakuProN-W3")
 p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$中原,n=1),label="中原",size=3,hjust=0,family="HiraKakuProN-W3")
 p3<-p3+annotate(geom="text",x=tail(ddf14$発表日,n=1),y=tail(ddf14$麻生,n=1),label="麻生",size=3,hjust=0,family="HiraKakuProN-W3")
-p3<-ggsave("p3.png",dpi=400)
+p3<-ggsave("p3.tiff",dpi=400)
 
 ##感染者数の人口10万人当たり累積数の対数値を評価
 ddf41<- ddf11
